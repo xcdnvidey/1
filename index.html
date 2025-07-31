@@ -1,185 +1,226 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>videy.co</title>
+  <title>Videy.co - Your Video Gallery</title>
+
   <style>
     body {
-      background-color: #00FFFF;
+      background-color: #00FFFF; /* Cyan */
       font-family: Arial, sans-serif;
-      color: #800080;
+      color: #800080; /* Purple */
       text-align: center;
-      padding: 50px;
+      padding: 20px;
+      margin: 0;
+      line-height: 1.6;
     }
-    h1 {
-      margin-bottom: 20px;
+
+    header {
+      background-color: #DDA0DD; /* Plum */
+      padding: 20px 0;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #C71585; /* Pink-Red */
     }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background-color: #DDA0DD	;
-      color: #000000;
-      text-decoration: none;
-      font-size: 18px;
+
+    header h1 {
+      color: #4B0082; /* Darker purple */
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Default to 2 columns on small screens */
+      gap: 20px; /* Space between grid items */
+      justify-content: center;
+      max-width: 1200px; /* Limit overall width of the gallery */
+      margin: 0 auto; /* Center the gallery */
+    }
+
+    figure {
+      background-color: #FFF; /* White background for each card */
+      padding: 15px;
       border-radius: 8px;
-      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow for cards */
+      margin: 0; /* Remove default figure margin as grid handles spacing */
+      display: flex; /* Use flexbox for internal alignment */
+      flex-direction: column;
+      justify-content: space-between; /* Push button to bottom */
+      height: 100%; /* Ensure figures take full height in grid */
     }
-    a:hover {
-      background-color: #0056b3;
-      color: white;
-    }
+
     img {
       display: block;
-      margin: auto;
-      width: 100%;
+      margin: 0 auto 15px auto; /* Center image and add bottom margin */
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px; /* Slightly less rounded for consistency */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for images */
+    }
+
+    figcaption {
+      margin-bottom: 15px; /* Space below caption */
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #4B0082; /* Darker purple for captions */
+      flex-grow: 1; /* Allow caption to take available space */
+    }
+
+    a {
+      display: block; /* Make the link a block to fill width */
+      width: fit-content; /* Adjust width to content */
+      margin: 0 auto; /* Center the button */
+      padding: 12px 25px;
+      background-color: #DDA0DD; /* Plum */
+      color: #000000; /* Black */
+      text-decoration: none;
+      font-size: 17px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #C71585; /* Pink-Red */
+    }
+
+    a:hover {
+      background-color: #4B0082; /* Darker purple */
+      color: white;
+      transform: translateY(-3px); /* Slight lift effect on hover */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+    }
+
+    /* --- Responsive adjustments for larger screens (laptops/desktops) --- */
+    @media (min-width: 768px) {
+      .gallery-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+      }
     }
   </style>
 </head>
 <body>
-  <br/>
-  <br/>
-  <figure>
-  <img src="1.jpg"/>
-  <figcaption>🥰🥰 my baby 🤍🖤</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/JEEABXsC1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="2.jpg"/>
-  <figcaption>Pinky vs Jazmine Cashmere</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/35ntKByC1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="3.jpg"/>
-  <figcaption>Perfection in human form 😍🌹🔥</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/3btKc0MS1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="4.jpg"/>
-  <figcaption>make my daughter miss school</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/IxxH2s1Z1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="5.jpg"/>
-  <figcaption>How i expect us to be after</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/2A4rv4sm1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="6.jpg"/>
-  <figcaption>Buttons closed, vibe wide open</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/DTnu3Tuk1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="7.jpg"/>
-  <figcaption>Soft bow, sharp game</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/85Zopc3r1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="8.jpg"/>
-  <figcaption>Yummy😮‍💨😍</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/VSVSWkpF1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="9.jpg"/>
-  <figcaption>The cowboy 🐎</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/fHokFTFG1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="0.jpg"/>
-  <figcaption>Awesome shot it's wow😱</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/lbdOMYh21.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="11.jpg"/>
-  <figcaption>My Private video</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/gjmuzoU81.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="12.jpg"/>
-  <figcaption>Joey White & Sami White</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/MnSk7RtQ1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="13.jpg"/>
-  <figcaption>they woke up and chose chaos</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/DYAbksXy1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="14.jpg"/>
-  <figcaption>A Dog Waiting for Its Master</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/x90DVkqb1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="15.jpg"/>
-  <figcaption>xxxx</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/X9FrjzO81.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="16.jpg"/>
-  <figcaption>Mic in hand, spotlight</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/BaxGy34n1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="17.jpg"/>
-  <figcaption>Yabdiel Cotto is a movie King</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/nYTia0iV1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="18.jpg"/>
-  <figcaption>This will shock your self</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/1m8Vll2K1.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="19.jpg"/>
-  <figcaption>everything is ready</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/frGzXq121.mp4" class="_blank">Go to Video</a>
-  <p/>
-  <figure>
-  <img src="20.jpg"/>
-  <figcaption>\Masked man ready for action</figcaption>
-  </figure>
-  <br/>
-  <a href="https://brexit-web.github.io/5Llx2fSq1.mp4" class="_blank">Go to Video</a>
-</body>
+  <header>
+    <h1>Welcome to Videy.co!</h1>
+  </header>
 
+  <div class="gallery-container">
+    <figure>
+      <img src="1.jpg" alt="behind the shoes " />
+      <figcaption>behind the shoes 😂🍆</figcaption>
+      <a href="https://brexit-web.github.io/URL1SKz11.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="2.jpg" alt="he's in a hurry" />
+      <figcaption>he's in a hurry</figcaption>
+      <a href="https://brexit-web.github.io/NA0xNeGZ1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="3.jpg" alt="I couldn't stand it" />
+      <figcaption>I couldn't stand it</figcaption>
+      <a href="https://brexit-web.github.io/bg3xtfL31.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="4.jpg" alt="Look at the waves" />
+      <figcaption>Look at the waves🌊</figcaption>
+      <a href="https://brexit-web.github.io/4KEnOYXX1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="5.jpg" alt="tutor i always wanted" />
+      <figcaption>tutor i always wanted</figcaption>
+      <a href="https://brexit-web.github.io/lAStCbav1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="6.jpg" alt="Tiger stripes, fearless" />
+      <figcaption>Tiger stripes, fearless</figcaption>
+      <a href="https://brexit-web.github.io/kRUTOHRL1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="7.jpg" alt="Love got us sweatin" />
+      <figcaption>Love got us sweatin</figcaption>
+      <a href="https://brexit-web.github.io/UmlFZ5Lv1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="8.jpg" alt="Pink toes for the win" />
+      <figcaption>Pink toes for the win</figcaption>
+      <a href="https://brexit-web.github.io/uKvPHWBp1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="9.jpg" alt="I'm highly favored" />
+      <figcaption>I'm highly favored</figcaption>
+      <a href="https://brexit-web.github.io/iRBuM8DN1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="0.jpg" alt="makes everything burn" />
+      <figcaption>makes everything burn</figcaption>
+      <a href="https://brexit-web.github.io/cfXoD4Wt1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="11.jpg" alt="This woman is very brave" />
+      <figcaption>This woman is very brave</figcaption>
+      <a href="https://brexit-web.github.io/Zqke9Nw91.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="12.jpg" alt="actually did it in public" />
+      <figcaption>actually did it in public</figcaption>
+      <a href="https://brexit-web.github.io/wQUqfhds1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="13.jpg" alt="Pretty Kitty" />
+      <figcaption>Pretty Kitty 😺</figcaption>
+      <a href="https://brexit-web.github.io/ECvAFrSS1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="14.jpg" alt="in the middle of the road" />
+      <figcaption>in the middle of the road</figcaption>
+      <a href="https://brexit-web.github.io/tf6Qm5ZE1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="15.jpg" alt="with brother-in-law" />
+      <figcaption>with brother-in-law</figcaption>
+      <a href="https://brexit-web.github.io/KLJYr2fp1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="16.jpg" alt="beautiful view hit harder" />
+      <figcaption>beautiful view hit harder</figcaption>
+      <a href="https://brexit-web.github.io/Jn93oIB21.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="17.jpg" alt="Her OF video" />
+      <figcaption>Her OF video</figcaption>
+      <a href="https://brexit-web.github.io/qeOC3VYU1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="18.jpg" alt="Can we have this" />
+      <figcaption>Can we have this</figcaption>
+      <a href="https://brexit-web.github.io/SZgPtiDm1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="19.jpg" alt="That's wife type" />
+      <figcaption>That's wife type ☺</figcaption>
+      <a href="https://brexit-web.github.io/exRhgI5o1.mp4" target="_blank">Go to Video</a>
+    </figure>
+
+    <figure>
+      <img src="20.jpg" alt="see you in top riding" />
+      <figcaption>see you in top riding</figcaption>
+      <a href="https://brexit-web.github.io/Yf43JBWu1.mp4" target="_blank">Go to Video</a>
+    </figure>
+  </div>
+</body>
 </html>
