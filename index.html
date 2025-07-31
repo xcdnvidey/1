@@ -40,7 +40,7 @@
 
     figure {
       background-color: #FFF; /* White background for each card */
-      padding: 15px;
+      padding: 15px; /* Padding inside the card, around its content */
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow for cards */
       margin: 0; /* Remove default figure margin as grid handles spacing */
@@ -52,14 +52,17 @@
 
     img {
       display: block;
-      margin: 0 auto 15px auto; /* Center image and add bottom margin */
+      margin: 0 auto; /* Center image horizontally within its padding */
+      padding: 10px; /* NEW: Padding directly on the image */
+      background-color: #F0F8FF; /* Optional: Light background to visualize padding */
       max-width: 100%;
       height: auto;
-      border-radius: 6px; /* Slightly less rounded for consistency */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for images */
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     figcaption {
+      margin-top: 15px; /* Space above caption, effectively separating it from the image */
       margin-bottom: 15px; /* Space below caption */
       font-size: 1.1em;
       font-weight: bold;
