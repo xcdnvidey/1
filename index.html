@@ -1,223 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Videy.co - Your Video Gallery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Videy.co - Galeri Video Viral dan Menarik | Tonton Sekarang!</title>
+  <meta name="description" content="Jelajahi galeri video Videy.co yang luas, menampilkan momen viral, klip lucu, adegan menyentuh hati, dan konten video menghibur lainnya. Temukan video favorit Anda dan bagikan sekarang!" />
+  <meta name="keywords" content="galeri video, video viral, video lucu, klip video, hiburan online, video pendek, videy.co, tonton video, konten menarik, video populer" />
+  <meta name="author" content="Videy.co Team" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://carlito471.github.io/index.html" />   <link rel="icon" href="favicon.ico" type="image/x-icon">     <meta property="og:title" content="Videy.co - Galeri Video Viral dan Menarik" />
+  <meta property="og:description" content="Temukan klip video paling populer, lucu, dan viral di Videy.co. Galeri video lengkap untuk hiburan Anda!" />
+  <meta property="og:image" content="https://carlito471.github.io/og-image-videyco.jpg" />   <meta property="og:url" content="https://carlito471.github.io/index.html" />   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
 
-  <style>
-    body {
-      background-color: #00FFFF; /* Cyan */
-      font-family: Arial, sans-serif;
-      color: #800080; /* Purple */
-      text-align: center;
-      padding: 20px;
-      margin: 0;
-      line-height: 1.6;
-    }
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yourtwitterhandle">   <meta name="twitter:title" content="Videy.co - Galeri Video Viral dan Menarik">
+  <meta name="twitter:description" content="Temukan klip video paling populer, lucu, dan viral di Videy.co. Galeri video lengkap untuk hiburan Anda!" />
+  <meta name="twitter:image" content="https://carlito471.github.io/twitter-image-videyco.jpg">   <style>
+    :root {
+      /* Palet warna yang lebih seimbang dan modern */
+      --bg-color: #f0f8ff; /* AliceBlue - sangat lembut dan menenangkan */
+      --card-bg-color: #ffffff; /* Putih bersih */
+      --text-color: #333333; /* Abu-abu gelap untuk keterbacaan */
+      --heading-color: #007bff; /* Biru cerah, elegan dan menarik */
+      --caption-color: #6a0dad; /* Ungu gelap yang lebih dalam untuk caption */
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-heavy: rgba(0, 0, 0, 0.15);
+    }
 
-    
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      color: var(--text-color);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      line-height: 1.6;
+      box-sizing: border-box; /* Memastikan padding tidak membuat elemen melebar */
+    }
 
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Default to 2 columns on small screens */
-      gap: 20px; /* Space between grid items */
-      justify-content: center;
-      max-width: 1200px; /* Limit overall width of the gallery */
-      margin: 0 auto; /* Center the gallery */
-	  margin-bottom: 40px; /* Added margin at the bottom of the gallery */
-    }
+    header {
+      margin-bottom: 30px;
+      padding: 10px 0;
+    }
 
-    figure {
-      padding: 15px; /* Padding inside the card, around its content */
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow for cards */
-      margin: 0; /* Remove default figure margin as grid handles spacing */
-      display: flex; /* Use flexbox for internal alignment */
-      flex-direction: column;
-      justify-content: space-between; /* Push button to bottom */
-      height: 100%; /* Ensure figures take full height in grid */
-    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); /* Ukuran font responsif yang lebih besar untuk H1 */
+      color: var(--heading-color);
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px var(--shadow-light);
+    }
 
-    img {
-      display: block;
-      background-color: #F0F8FF
-      margin: 0 auto; /* Center image horizontally within its padding */
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+    header p {
+      font-size: clamp(1em, 2.5vw, 1.2em);
+      color: var(--text-color);
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-    figcaption {
-      margin-top: 15px; /* Space above caption, effectively separating it from the image */
-      margin-bottom: 15px; /* Space below caption */
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #4B0082; /* Darker purple for captions */
-      flex-grow: 1; /* Allow caption to take available space */
-    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Min lebar sedikit lebih besar */
+      gap: 25px; /* Jarak antar item sedikit lebih besar */
+      justify-content: center;
+      max-width: 1280px; /* Lebar maksimal diperbesar sedikit */
+      margin: 0 auto 50px auto; /* Margin bawah lebih besar */
+      padding: 0 15px; /* Padding samping untuk layar kecil */
+    }
 
-    /* Shared button style */
-    .button-style {
-      display: block; /* Make the link a block to fill width */
-      width: fit-content; /* Adjust width to content */
-      margin: 0 auto; /* Center the button */
-      padding: 12px 25px;
-      background-color: #DDA0DD; /* Plum */
-      color: #000000; /* Black */
-      text-decoration: none;
-      font-size: 17px;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #C71585; /* Pink-Red */
-    }
+    figure {
+      background-color: var(--card-bg-color);
+      padding: 18px; /* Padding sedikit lebih banyak */
+      border-radius: 10px; /* Radius yang pas */
+      box-shadow: 0 6px 15px var(--shadow-light); /* Shadow yang lebih halus */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05); /* Border tipis untuk definisi */
+    }
 
-    .button-style:hover {
-      background-color: #4B0082; /* Darker purple */
-      color: white;
-      transform: translateY(-3px); /* Slight lift effect on hover */
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
-    }
+    figure:hover {
+      transform: translateY(-5px); /* Efek lift yang halus */
+      box-shadow: 0 10px 25px var(--shadow-heavy); /* Shadow lebih menonjol saat hover */
+    }
 
-    /* Specific style for the next page button */
-    .next-page-button {
-      margin-top: 30px; /* Space above the button */
-      margin-bottom: 50px; /* Space below the button */
-    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: 180px; /* Tinggi gambar konsisten */
+      object-fit: cover; /* Penting: gambar akan menutupi area tanpa distorsi */
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
 
-    /* --- Responsive adjustments for larger screens (laptops/desktops) --- */
-    @media (min-width: 768px) {
-      .gallery-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
-      }
-    }
-  </style>
+    figcaption {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: clamp(1em, 2.5vw, 1.2em); /* Ukuran font responsif */
+      font-weight: 600; /* Sedikit lebih tebal */
+      color: var(--caption-color);
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+
+    /* Shared button style (TIDAK BERUBAH) */
+    .button-style {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 12px 25px;
+      background-color: #DDA0DD; /* Plum */
+      color: #000000; /* Black */
+      text-decoration: none;
+      font-size: 17px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #C71585; /* Pink-Red */
+    }
+
+    .button-style:hover {
+      background-color: #4B0082; /* Darker purple */
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Specific style for the next page button */
+    .next-page-button {
+      margin-top: 40px; /* Ruang lebih banyak di atas tombol */
+      margin-bottom: 60px; /* Ruang lebih banyak di bawah tombol */
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* --- Responsive adjustments --- */
+    @media (min-width: 600px) {
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3-4 kolom di tablet */
+      }
+    }
+
+    @media (min-width: 900px) {
+      .gallery-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolom di layar besar */
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .gallery-container {
+        grid-template-columns: repeat(5, 1fr); /* 5 kolom di layar ekstra besar */
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="gallery-container">
-    <figure>
-      <img src="1.jpg" alt="A baby smiling" />
-      <figcaption>🥰🥰 my baby 🤍🖤</figcaption>
-      <a href="https://brexit-web.github.io/JEEABXsC1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+  <header>
+    <h1>Videy.co - Galeri Video Viral dan Menarik Terbaru</h1>
+    <p>Temukan dan tonton koleksi video paling populer, lucu, dan menghibur dari berbagai kategori. Selalu update dengan konten viral terkini!</p>
+  </header>
 
-    <figure>
-      <img src="2.jpg" alt="Pinky vs Jazmine Cashmere" />
-      <figcaption>Pinky vs Jazmine Cashmere</figcaption>
-      <a href="https://brexit-web.github.io/35ntKByC1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+  <main>
+    <section class="gallery-container">
+            <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="1.jpg" alt="Video thumbnail of an adorable baby smiling happily" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">🥰🥰 my baby 🤍🖤</figcaption>
+        <meta itemprop="description" content="Klip video mengharukan tentang bayi yang tersenyum riang." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/JEEABXsC1.mp4" />
+        <a href="https://brexit-web.github.io/JEEABXsC1.mp4" class="button-style" aria-label="Tonton video: My Baby Smiling">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="3.jpg" alt="Perfection in human form" />
-      <figcaption>Perfection in human form 😍🌹🔥</figcaption>
-      <a href="https://brexit-web.github.io/3btKc0MS1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="2.jpg" alt="Video thumbnail of an intense boxing match between Pinky and Jazmine Cashmere" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Pinky vs Jazmine Cashmere</figcaption>
+        <meta itemprop="description" content="Video pertarungan seru antara Pinky dan Jazmine Cashmere." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/35ntKByC1.mp4" />
+        <a href="https://brexit-web.github.io/35ntKByC1.mp4" class="button-style" aria-label="Tonton video: Pinky vs Jazmine Cashmere">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="4.jpg" alt="Image related to school" />
-      <figcaption>make my daughter miss school</figcaption>
-      <a href="https://brexit-web.github.io/IxxH2s1Z1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="3.jpg" alt="Video thumbnail showing human perfection and stunning beauty" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Perfection in human form 😍🌹🔥</figcaption>
+        <meta itemprop="description" content="Video memukau yang menampilkan keindahan dan kesempurnaan bentuk tubuh manusia." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/3btKc0MS1.mp4" />
+        <a href="https://brexit-web.github.io/3btKc0MS1.mp4" class="button-style" aria-label="Tonton video: Perfection in Human Form">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="5.jpg" alt="Image portraying expectations" />
-      <figcaption>How i expect us to be after</figcaption>
-      <a href="https://brexit-web.github.io/2A4rv4sm1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="4.jpg" alt="Humorous video thumbnail about making a daughter miss school" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">make my daughter miss school</figcaption>
+        <meta itemprop="description" content="Video lucu tentang upaya orang tua agar anaknya bolos sekolah." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/IxxH2s1Z1.mp4" />
+        <a href="https://brexit-web.github.io/IxxH2s1Z1.mp4" class="button-style" aria-label="Tonton video: Make My Daughter Miss School">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="6.jpg" alt="A person with buttons closed" />
-      <figcaption>Buttons closed, vibe wide open</figcaption>
-      <a href="https://brexit-web.github.io/DTnu3Tuk1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="5.jpg" alt="Video thumbnail portraying romantic relationship goals and expectations" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">How i expect us to be after</figcaption>
+        <meta itemprop="description" content="Video aspiratif yang menggambarkan harapan romantis dalam hubungan." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/2A4rv4sm1.mp4" />
+        <a href="https://brexit-web.github.io/2A4rv4sm1.mp4" class="button-style" aria-label="Tonton video: How I Expect Us To Be">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="7.jpg" alt="Soft bow, sharp game" />
-      <figcaption>Soft bow, sharp game</figcaption>
-      <a href="https://brexit-web.github.io/85Zopc3r1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="6.jpg" alt="Video thumbnail of a person confidently posing with buttons closed" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Buttons closed, vibe wide open</figcaption>
+        <meta itemprop="description" content="Klip video yang menampilkan seseorang dengan gaya kancing tertutup namun memancarkan aura percaya diri." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/DTnu3Tuk1.mp4" />
+        <a href="https://brexit-web.github.io/DTnu3Tuk1.mp4" class="button-style" aria-label="Tonton video: Buttons Closed Vibe Wide Open">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="8.jpg" alt="Yummy" />
-      <figcaption>Yummy😮‍💨😍</figcaption>
-      <a href="https://brexit-web.github.io/VSVSWkpF1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="7.jpg" alt="Video thumbnail showing a soft and precise move in a sharp game" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Soft bow, sharp game</figcaption>
+        <meta itemprop="description" content="Video yang mendemonstrasikan manuver lembut namun kuat dalam permainan yang kompetitif." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/85Zopc3r1.mp4" />
+        <a href="https://brexit-web.github.io/85Zopc3r1.mp4" class="button-style" aria-label="Tonton video: Soft Bow Sharp Game">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="9.jpg" alt="The cowboy" />
-      <figcaption>The cowboy 🐎</figcaption>
-      <a href="https://brexit-web.github.io/fHokFTFG1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="8.jpg" alt="Video thumbnail of delicious and appetizing food" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Yummy😮‍💨😍</figcaption>
+        <meta itemprop="description" content="Video menggoda yang menampilkan hidangan lezat dan menarik." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/VSVSWkpF1.mp4" />
+        <a href="https://brexit-web.github.io/VSVSWkpF1.mp4" class="button-style" aria-label="Tonton video: Yummy Delicious Food">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="0.jpg" alt="Awesome shot" />
-      <figcaption>Awesome shot it's wow😱</figcaption>
-      <a href="https://brexit-web.github.io/lbdOMYh21.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="9.jpg" alt="Video thumbnail of a cowboy performing equestrian skills" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">The cowboy 🐎</figcaption>
+        <meta itemprop="description" content="Video seru seorang koboi yang memamerkan keterampilan berkuda atau melilit tali." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/fHokFTFG1.mp4" />
+        <a href="https://brexit-web.github.io/fHokFTFG1.mp4" class="button-style" aria-label="Tonton video: The Cowboy">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="11.jpg" alt="My Private video" />
-      <figcaption>My Private video</figcaption>
-      <a href="https://brexit-web.github.io/gjmuzoU81.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="0.jpg" alt="Video thumbnail of an awesome and surprising shot that makes you say wow" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Awesome shot it's wow😱</figcaption>
+        <meta itemprop="description" content="Klip video yang menampilkan momen atau trik luar biasa dan mengejutkan." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/lbdOMYh21.mp4" />
+        <a href="https://brexit-web.github.io/lbdOMYh21.mp4" class="button-style" aria-label="Tonton video: Awesome Shot Wow">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="12.jpg" alt="Joey White & Sami White" />
-      <figcaption>Joey White & Sami White</figcaption>
-      <a href="https://brexit-web.github.io/MnSk7RtQ1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="11.jpg" alt="Video thumbnail for 'My Private Video'" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">My Private video</figcaption>
+        <meta itemprop="description" content="Video pribadi, mungkin ditujukan untuk tontonan pribadi atau audiens tertentu." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/gjmuzoU81.mp4" />
+        <a href="https://brexit-web.github.io/gjmuzoU81.mp4" class="button-style" aria-label="Tonton video: My Private Video">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="13.jpg" alt="They woke up and chose chaos" />
-      <figcaption>they woke up and chose chaos</figcaption>
-      <a href="https://brexit-web.github.io/DYAbksXy1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="12.jpg" alt="Video thumbnail featuring Joey White and Sami White" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Joey White & Sami White</figcaption>
+        <meta itemprop="description" content="Video yang menampilkan interaksi atau aktivitas yang melibatkan Joey White dan Sami White." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/MnSk7RtQ1.mp4" />
+        <a href="https://brexit-web.github.io/MnSk7RtQ1.mp4" class="button-style" aria-label="Tonton video: Joey White and Sami White">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="14.jpg" alt="A Dog Waiting for Its Master" />
-      <figcaption>A Dog Waiting for Its Master</figcaption>
-      <a href="https://brexit-web.github.io/x90DVkqb1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="13.jpg" alt="Video thumbnail of people making chaotic or mischievous choices" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">they woke up and chose chaos</figcaption>
+        <meta itemprop="description" content="Video lucu yang menggambarkan individu yang terlibat dalam tindakan kacau atau memberontak." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/DYAbksXy1.mp4" />
+        <a href="https://brexit-web.github.io/DYAbksXy1.mp4" class="button-style" aria-label="Tonton video: They Woke Up and Chose Chaos">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="15.jpg" alt="all in there for a reason" />
-      <figcaption>all in there for a reason</figcaption>
-      <a href="https://brexit-web.github.io/7m9P354R1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="14.jpg" alt="Video thumbnail of a loyal dog patiently waiting for its owner" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">A Dog Waiting for Its Master</figcaption>
+        <meta itemprop="description" content="Video menyentuh hati tentang seekor anjing yang menunjukkan kesetiaan dengan menunggu tuannya." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/x90DVkqb1.mp4" />
+        <a href="https://brexit-web.github.io/x90DVkqb1.mp4" class="button-style" aria-label="Tonton video: A Dog Waiting for Its Master">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="16.jpg" alt="Mic in hand, spotlight" />
-      <figcaption>Mic in hand, spotlight</figcaption>
-      <a href="https://brexit-web.github.io/BaxGy34n1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="15.jpg" alt="Video thumbnail with a philosophical message: everything happens for a reason" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">all in there for a reason</figcaption>
+        <meta itemprop="description" content="Video mendalam yang mengeksplorasi gagasan bahwa setiap peristiwa terjadi karena suatu tujuan." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/7m9P354R1.mp4" />
+        <a href="https://brexit-web.github.io/7m9P354R1.mp4" class="button-style" aria-label="Tonton video: All in There For a Reason">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="17.jpg" alt="Yabdiel Cotto is a movie King" />
-      <figcaption>Yabdiel Cotto is a movie King</figcaption>
-      <a href="https://brexit-web.github.io/nYTia0iV1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="16.jpg" alt="Video thumbnail of a powerful performance with a microphone under a spotlight" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Mic in hand, spotlight</figcaption>
+        <meta itemprop="description" content="Video dinamis yang menangkap momen seorang performer memegang mic di bawah sorotan lampu." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/BaxGy34n1.mp4" />
+        <a href="https://brexit-web.github.io/BaxGy34n1.mp4" class="button-style" aria-label="Tonton video: Mic in Hand Spotlight">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="18.jpg" alt="This will shock your self" />
-      <figcaption>This will shock your self</figcaption>
-      <a href="https://brexit-web.github.io/1m8Vll2K1.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="17.jpg" alt="Video thumbnail featuring Yabdiel Cotto, highlighting him as a movie king" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Yabdiel Cotto is a movie King</figcaption>
+        <meta itemprop="description" content="Video yang menyoroti keterampilan akting atau pembuatan film Yabdiel Cotto yang luar biasa." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/nYTia0iV1.mp4" />
+        <a href="https://brexit-web.github.io/nYTia0iV1.mp4" class="button-style" aria-label="Tonton video: Yabdiel Cotto Movie King">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="19.jpg" alt="Everything is ready" />
-      <figcaption>everything is ready</figcaption>
-      <a href="https://brexit-web.github.io/frGzXq121.mp4"  class="button-style">Go to Video</a>
-    </figure>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="18.jpg" alt="Video thumbnail with content designed to shock or surprise the viewer" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">This will shock your self</figcaption>
+        <meta itemprop="description" content="Video yang berisi konten mengejutkan atau mencengangkan yang bertujuan untuk memukau penonton." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/1m8Vll2K1.mp4" />
+        <a href="https://brexit-web.github.io/1m8Vll2K1.mp4" class="button-style" aria-label="Tonton video: This Will Shock Yourself">Go to Video</a>
+      </figure>
 
-    <figure>
-      <img src="20.jpg" alt="Masked man ready for action" />
-      <figcaption>Masked man ready for action</figcaption>
-      <a href="https://brexit-web.github.io/5Llx2fSq1.mp4"  class="button-style">Go to Video</a>
-    </figure>
-  </div>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="19.jpg" alt="Video thumbnail indicating everything is fully prepared and ready for an event" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">everything is ready</figcaption>
+        <meta itemprop="description" content="Video yang menunjukkan persiapan teliti dan kesiapan untuk acara atau proyek mendatang." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/frGzXq121.mp4" />
+        <a href="https://brexit-web.github.io/frGzXq121.mp4" class="button-style" aria-label="Tonton video: Everything Is Ready">Go to Video</a>
+      </figure>
 
-  <a href="next-page.html" class="button-style next-page-button">Go to Next Page</a>
+      <figure itemscope itemtype="http://schema.org/VideoObject">
+        <img src="20.jpg" alt="Video thumbnail of a mysterious masked man preparing for action or adventure" itemprop="thumbnailUrl" width="180" height="180" loading="lazy" />
+        <figcaption itemprop="name">Masked man ready for action</figcaption>
+        <meta itemprop="description" content="Video mendebarkan tentang individu bertopeng yang siap untuk tantangan atau misi menarik." />
+        <meta itemprop="uploadDate" content="2025-08-03" />
+        <link itemprop="contentUrl" href="https://brexit-web.github.io/5Llx2fSq1.mp4" />
+        <a href="https://brexit-web.github.io/5Llx2fSq1.mp4" class="button-style" aria-label="Tonton video: Masked Man Ready for Action">Go to Video</a>
+      </figure>
+    </section>
+    <a href="https://carlito471.github.io" class="button-style next-page-button">Halaman Selanjutnya</a>
+  </main>
 
+  <footer>
+    <p>&copy; 2025 Videy.co. Semua Hak Dilindungi.</p>
+  </footer>
 </body>
 </html>
