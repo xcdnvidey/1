@@ -83,7 +83,7 @@
       font-weight: 600;
       color: var(--text-color);
       flex-grow: 1;
-	  white-space: nowrap;
+      white-space: nowrap;
     }
 
     .video-link {
@@ -101,9 +101,7 @@
       font-weight: 600;
       border-radius: 8px;
       transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  /* You can keep white-space: nowrap; or remove it based on desired wrapping behavior */
       white-space: nowrap; /* Keep if you want text on one line and let it overflow if too long */
-  /* Remove text-align: center; as flexbox handles it */
     }
 
     .video-link:hover {
@@ -315,8 +313,63 @@
   <footer>
     <p>&copy; 2025 Videy.co. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable F12 and Ctrl+Shift+I (Developer Tools)
+    document.addEventListener('keydown', function(e) {
+      // F12 key
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Ctrl+Shift+I (or Cmd+Option+I for Mac)
+      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+      }
+      // Ctrl+U (View Source)
+      if (e.ctrlKey && e.key === 'U') {
+        e.preventDefault();
+      }
+      // Ctrl+S (Save Page)
+      if (e.ctrlKey && e.key === 'S') {
+        e.preventDefault();
+      }
+    });
+
+    // Optional: Detect if DevTools are open (less reliable)
+    // This is a common trick, but can be bypassed.
+    // var devtools = { open: false, orientation: null };
+    // var threshold = 160;
+    // var emitEvent = function (state, orientation) {
+    //   window.dispatchEvent(new CustomEvent('devtoolschange', { detail: { open: state, orientation: orientation } }));
+    // };
+
+    // setInterval(function () {
+    //   var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+    //   var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+    //   var orientation = widthThreshold ? 'vertical' : 'horizontal';
+
+    //   if (
+    //     !(heightThreshold && widthThreshold) &&
+    //     ((window.outerHeight - window.innerHeight) > 0 || (window.outerWidth - window.innerWidth) > 0)
+    //   ) {
+    //     if (!devtools.open || devtools.orientation !== orientation) {
+    //       emitEvent(true, orientation);
+    //     }
+    //     devtools.open = true;
+    //     devtools.orientation = orientation;
+    //   } else {
+    //     if (devtools.open) {
+    //       emitEvent(false, null);
+    //     }
+    //     devtools.open = false;
+    //     devtools.orientation = null;
+    //   }
+    // }, 500); // Check every 500ms
+  </script>
 </body>
 </html>
-
-
-
