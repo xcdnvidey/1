@@ -12,7 +12,7 @@
 
   <style>
     :root {
-      /* Palet warna yang lebih modern dan konsisten */
+      
       --bg-color: #f4f7f6;
       --card-bg-color: #ffffff;
       --text-color: #333333;
@@ -33,12 +33,11 @@
     }
 
     h1 {
-      font-size: clamp(0.9rem, 4.5vw, 2.5rem); /* Mengatur ukuran font responsif */
+      font-size: clamp(0.9rem, 4.5vw, 2.5rem); 
       color: var(--link-color);
       margin-bottom: 2rem;
       text-shadow: 1px 1px 3px var(--shadow-light);
-      white-space: nowrap; /* Memastikan teks tetap dalam satu baris */
-      /* Hapus overflow: hidden; dan text-overflow: ellipsis; dari sini */
+      white-space: nowrap; 
     }
 
     .gallery-container {
@@ -87,10 +86,10 @@
     }
 
     .video-link {
-      display: flex; /* Change to flex */
-      align-items: center; /* Vertically center content */
-      justify-content: center; /* Horizontally center content */
-      width: 100%; /* Or auto / fit-content */
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 100%; 
       box-sizing: border-box;
       margin: 0 auto;
       padding: 0.75rem 1.5rem;
@@ -101,7 +100,7 @@
       font-weight: 600;
       border-radius: 8px;
       transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap; /* Keep if you want text on one line and let it overflow if too long */
+      white-space: nowrap; 
     }
 
     .video-link:hover {
@@ -110,7 +109,7 @@
       box-shadow: 0 4px 8px var(--shadow-heavy);
     }
 
-    /* Penyesuaian responsif untuk perangkat yang lebih besar */
+    
     @media (min-width: 768px) {
       .gallery-container {
         grid-template-columns: repeat(4, 1fr);
@@ -118,6 +117,11 @@
       .video-link {
         width: auto;
       }
+    }
+
+    
+    .hidden-css {
+      display: none !important; 
     }
   </style>
 </head>
@@ -312,64 +316,61 @@
 
   <footer>
     <p>&copy; 2025 Videy.co. All rights reserved.</p>
+    <div id="secretMessage" class="hidden-css">This is a secret message, hidden by default.</div>
   </footer>
 
   <script>
-    // Disable right-click context menu
+    
+    const secretMessage = document.getElementById('secretMessage');
+    if (secretMessage) { // Check if the element exists to prevent errors
+      secretMessage.classList.add('hidden-css');
+    }
+
+    
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
+      console.log('Right-click prevented.'); // Optional: for debugging
     });
 
-    // Disable F12 and Ctrl+Shift+I (Developer Tools)
+    
     document.addEventListener('keydown', function(e) {
-      // F12 key
-      if (e.key === 'F12') {
+      const forbiddenKeys = ['F12'];
+      const forbiddenCtrlShiftKeys = ['I', 'J', 'C']; // I for Inspect, J for Console, C for Elements
+      const forbiddenCtrlKeys = ['U', 'S']; // U for View Source, S for Save
+
+      
+      if (forbiddenKeys.includes(e.key)) {
         e.preventDefault();
+        console.log(`${e.key} key prevented.`);
       }
-      // Ctrl+Shift+I (or Cmd+Option+I for Mac)
-      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+
+      
+      if (e.ctrlKey && e.shiftKey && forbiddenCtrlShiftKeys.includes(e.key.toUpperCase())) {
         e.preventDefault();
+        console.log(`Ctrl+Shift+${e.key.toUpperCase()} prevented.`);
       }
-      // Ctrl+U (View Source)
-      if (e.ctrlKey && e.key === 'U') {
+
+      
+      if (e.ctrlKey && forbiddenCtrlKeys.includes(e.key.toUpperCase())) {
         e.preventDefault();
-      }
-      // Ctrl+S (Save Page)
-      if (e.ctrlKey && e.key === 'S') {
-        e.preventDefault();
+        console.log(`Ctrl+${e.key.toUpperCase()} prevented.`);
       }
     });
 
-    // Optional: Detect if DevTools are open (less reliable)
-    // This is a common trick, but can be bypassed.
-    // var devtools = { open: false, orientation: null };
-    // var threshold = 160;
-    // var emitEvent = function (state, orientation) {
-    //   window.dispatchEvent(new CustomEvent('devtoolschange', { detail: { open: state, orientation: orientation } }));
-    // };
+    
+    (function() {
+      var devtools = /devtool/i;
+      var checkStatus = function() {
+        if (devtools.test(function() {}.toString())) {
+          // This part only executes if dev tools are open in some browsers
+          console.warn("Hey! Looks like you're peeking. 😉");
+          console.warn("Our content is meant to be enjoyed directly!");
+          // You could also redirect, or overlay content, but that can be annoying for users.
+        }
+      };
+      
+    })();
 
-    // setInterval(function () {
-    //   var widthThreshold = window.outerWidth - window.innerWidth > threshold;
-    //   var heightThreshold = window.outerHeight - window.innerHeight > threshold;
-    //   var orientation = widthThreshold ? 'vertical' : 'horizontal';
-
-    //   if (
-    //     !(heightThreshold && widthThreshold) &&
-    //     ((window.outerHeight - window.innerHeight) > 0 || (window.outerWidth - window.innerWidth) > 0)
-    //   ) {
-    //     if (!devtools.open || devtools.orientation !== orientation) {
-    //       emitEvent(true, orientation);
-    //     }
-    //     devtools.open = true;
-    //     devtools.orientation = orientation;
-    //   } else {
-    //     if (devtools.open) {
-    //       emitEvent(false, null);
-    //     }
-    //     devtools.open = false;
-    //     devtools.orientation = null;
-    //   }
-    // }, 500); // Check every 500ms
   </script>
 </body>
 </html>
