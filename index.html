@@ -50,11 +50,10 @@
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
       justify-content: center;
       max-width: 1200px;
-      margin: 40px;
-      margin-bottom: 40px;
+      margin: 0 auto;
     }
 
     figure {
@@ -131,6 +130,12 @@
       .video-link {
         width: auto;
       }
+    }
+	@media (max-width: 767px) {
+     .gallery-container {
+       grid-template-columns: repeat(2, 1fr); /* Memaksa 2 kolom pada sebagian besar handphone */
+       gap: 1rem; /* Mungkin kurangi gap sedikit di layar kecil */
+     }
     }
   </style>
 </head>
@@ -329,5 +334,3 @@
   </footer>
 </body>
 </html>
-
-
