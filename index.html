@@ -17,166 +17,122 @@
   <meta property="og:image" content="https://carlito471.github.io/videy-share-image-2.jpg" />
 
   <style>
-    /* Using CSS Variables for a modern approach */
     :root {
-      --bg-color: #e0f7fa; /* Light Cyan */
-      --header-bg: #9c27b0; /* Purple 700 */
-      --text-color-primary: #6a1b9a; /* Deep Purple */
-      --text-color-secondary: #4a148c; /* Darker Purple */
-      --card-bg: #ffffff; /* White */
-      --button-bg: #ab47bc; /* Medium Purple */
-      --button-hover-bg: #6a1b9a; /* Deep Purple (darker for hover) */
-      --shadow-light: rgba(0, 0, 0, 0.1);
-      --shadow-medium: rgba(0, 0, 0, 0.15);
-      --shadow-heavy: rgba(0, 0, 0, 0.25);
+      /* Palet warna yang lebih modern dan konsisten */
+      --bg-color: #f4f7f6;
+      --card-bg-color: #ffffff;
+      --text-color: #333333;
+      --link-color: #007bff;
+      --link-hover-color: #0056b3;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-heavy: rgba(0, 0, 0, 0.15);
     }
 
     body {
       background-color: var(--bg-color);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text-color-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-color);
       text-align: center;
-      padding: 0; /* Adjusted for header */
+      padding: 0.5rem 1rem;
       margin: 0;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
-    header {
-      padding: 40px 20px;
-      background-color: var(--header-bg);
-      color: white;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 8px var(--shadow-medium);
-    }
-
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
-
-    main {
-      flex-grow: 1; /* Allows main content to expand and push footer down */
-      padding: 0 20px; /* Add some horizontal padding to the main content area */
+    h1 {
+      font-size: clamp(0.9rem, 4.5vw, 2.5rem); /* Mengatur ukuran font responsif */
+      color: var(--link-color);
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px var(--shadow-light);
+      white-space: nowrap; /* Memastikan teks tetap dalam satu baris */
+      /* Hapus overflow: hidden; dan text-overflow: ellipsis; dari sini */
     }
 
     .gallery-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for better card size */
-      gap: 30px; /* Increased space between grid items */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
       justify-content: center;
-      max-width: 1280px; /* Wider overall width */
-      margin: 0 auto 50px auto; /* Centered with more bottom margin */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     figure {
-      background-color: var(--card-bg);
-      padding: 20px; /* More padding inside the card */
-      border-radius: 12px; /* Softer rounded corners */
-      box-shadow: 0 6px 15px var(--shadow-light); /* Enhanced shadow for cards */
+      background-color: var(--card-bg-color);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px var(--shadow-light);
       margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     figure:hover {
-      transform: translateY(-8px); /* More pronounced lift effect */
-      box-shadow: 0 12px 25px var(--shadow-heavy); /* Stronger shadow on hover */
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px var(--shadow-heavy);
     }
 
     img {
       display: block;
-      margin: 0 auto 15px auto; /* Center image with space below */
-      max-width: 100%;
-      height: 180px; /* Fixed height for images to ensure uniformity */
-      object-fit: cover; /* Ensures images cover the area without distortion */
-      border-radius: 8px; /* Slightly rounded image corners */
-      box-shadow: 0 2px 6px var(--shadow-light);
-      /* SEO: Lazy loading for performance */
-      loading="lazy";
-      /* Explicit width and height for better LCP */
-      width="280";
-      height="180";
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
     }
 
     figcaption {
-      margin-top: 15px;
-      margin-bottom: 20px; /* More space below caption */
-      font-size: 1.2em; /* Slightly larger font for captions */
-      font-weight: 600; /* Medium bold */
-      color: var(--text-color-secondary); /* Darker purple for captions */
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      font-weight: 600;
+      color: var(--text-color);
       flex-grow: 1;
-      line-height: 1.3; /* Improved readability */
+	  white-space: nowrap;
     }
 
-    /* Shared button style */
-    .button-style {
-      display: inline-block; /* Use inline-block for better centering */
-      width: fit-content;
+    .video-link {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
       margin: 0 auto;
-      padding: 14px 30px; /* More padding for a bolder button */
-      background-color: var(--button-bg);
-      color: white; /* White text for contrast */
+      padding: 0.75rem 1.5rem;
+      background-color: var(--link-color);
+      color: #ffffff;
       text-decoration: none;
-      font-size: 18px; /* Slightly larger font */
-      font-weight: bold;
-      border-radius: 30px; /* Pill-shaped buttons */
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      border: none; /* Remove default border */
-      cursor: pointer;
+      font-size: clamp(0.9rem, 4.5vw, 1rem);
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+	  white-space: nowrap;
+	  text-align: center
     }
 
-    .button-style:hover {
-      background-color: var(--button-hover-bg);
-      transform: translateY(-5px); /* More pronounced lift */
-      box-shadow: 0 8px 20px var(--shadow-heavy); /* Stronger shadow */
+    .video-link:hover {
+      background-color: var(--link-hover-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--shadow-heavy);
+    }
+	.next-page-button {
+      margin-top: 30px; /* Space above the button */
+      margin-bottom: 50px; /* Space below the button */
     }
 
-    /* Specific style for the next page button */
-    .next-page-button {
-      margin-top: 40px;
-      margin-bottom: 80px; /* More space below the next page button */
-      align-self: center; /* Center the button in the flex column */
-    }
-
-    footer {
-      padding: 20px;
-      background-color: var(--header-bg);
-      color: white;
-      margin-top: auto; /* Pushes the footer to the bottom */
-      box-shadow: 0 -4px 8px var(--shadow-medium);
-      font-size: 0.9em;
-    }
-
-    /* --- Responsive adjustments for larger screens --- */
+    /* Penyesuaian responsif untuk perangkat yang lebih besar */
     @media (min-width: 768px) {
       .gallery-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+        grid-template-columns: repeat(4, 1fr);
       }
-    }
-
-    @media (min-width: 1024px) {
-      .gallery-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+      .video-link {
+        width: auto;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to Videy.co: Your Source for Engaging Videos!</h1>
-    <p>Explore a vast array of captivating clips, from heartwarming moments to thrilling action and viral sensations.</p>
+    <h1>Your Ultimate Video Gallery for Viral Content</h1>
   </header>
 
   <main>
@@ -186,16 +142,16 @@
         <figcaption itemprop="name">🥰🥰 My Adorable Baby 🤍🖤</figcaption>
         <meta itemprop="description" content="A heartwarming clip of a baby's joyful smile, perfect for sharing." />
         <meta itemprop="uploadDate" content="2025-08-02" /> <link itemprop="contentUrl" href="https://brexit-web.github.io/JEEABXsC1.mp4" />
-        <a href="https://brexit-web.github.io/JEEABXsC1.mp4" class="button-style" aria-label="Watch video: My Adorable Baby">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/JEEABXsC1.mp4" class="video-link" aria-label="Watch video: My Adorable Baby">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
         <img src="2.jpg" alt="Pinky vs Jazmine Cashmere in an exciting face-off" itemprop="thumbnailUrl" loading="lazy" width="280" height="180" />
-        <figcaption itemprop="name">Pinky vs. Jazmine Cashmere: The Ultimate Showdown</figcaption>
+        <figcaption itemprop="name">Pinky vs. Jazmine Cashmere</figcaption>
         <meta itemprop="description" content="An exciting video featuring the epic confrontation between Pinky and Jazmine Cashmere." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/35ntKByC1.mp4" />
-        <a href="https://brexit-web.github.io/35ntKByC1.mp4" class="button-style" aria-label="Watch video: Pinky vs Jazmine Cashmere">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/35ntKByC1.mp4" class="video-link" aria-label="Watch video: Pinky vs Jazmine Cashmere">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -204,16 +160,16 @@
         <meta itemprop="description" content="A stunning video showcasing an individual's unparalleled beauty and grace." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/3btKc0MS1.mp4" />
-        <a href="https://brexit-web.github.io/3btKc0MS1.mp4" class="button-style" aria-label="Watch video: Perfection in human form">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/3btKc0MS1.mp4" class="video-link" aria-label="Watch video: Perfection in human form">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
         <img src="4.jpg" alt="Humorous clip about a daughter's school experience" itemprop="thumbnailUrl" loading="lazy" width="280" height="180" />
-        <figcaption itemprop="name">Making My Daughter Miss School (Humorous)</figcaption>
+        <figcaption itemprop="name">Making My Daughter Miss School</figcaption>
         <meta itemprop="description" content="A funny and lighthearted video about a child's school absence." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/IxxH2s1Z1.mp4" />
-        <a href="https://brexit-web.github.io/IxxH2s1Z1.mp4" class="button-style" aria-label="Watch video: make my daughter miss school">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/IxxH2s1Z1.mp4" class="video-link" aria-label="Watch video: make my daughter miss school">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -222,7 +178,7 @@
         <meta itemprop="description" content="A video illustrating romantic or personal expectations for a future scenario." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/2A4rv4sm1.mp4" />
-        <a href="https://brexit-web.github.io/2A4rv4sm1.mp4" class="button-style" aria-label="Watch video: How i expect us to be after">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/2A4rv4sm1.mp4" class="video-link" aria-label="Watch video: How i expect us to be after">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -231,16 +187,16 @@
         <meta itemprop="description" content="A video celebrating a relaxed and confident attitude with a closed-off appearance." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/DTnu3Tuk1.mp4" />
-        <a href="https://brexit-web.github.io/DTnu3Tuk1.mp4" class="button-style" aria-label="Watch video: Buttons closed, vibe wide open">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/DTnu3Tuk1.mp4" class="video-link" aria-label="Watch video: Buttons closed, vibe wide open">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
         <img src="7.jpg" alt="Metaphor for a soft approach with a sharp, strategic game" itemprop="thumbnailUrl" loading="lazy" width="280" height="180" />
-        <figcaption itemprop="name">Soft Bow, Sharp Game: Masterful Play</figcaption>
+        <figcaption itemprop="name">Soft Bow, Sharp Game</figcaption>
         <meta itemprop="description" content="A video illustrating a subtle yet highly effective strategy or performance." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/85Zopc3r1.mp4" />
-        <a href="https://brexit-web.github.io/85Zopc3r1.mp4" class="button-style" aria-label="Watch video: Soft bow, sharp game">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/85Zopc3r1.mp4" class="video-link" aria-label="Watch video: Soft bow, sharp game">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -249,7 +205,7 @@
         <meta itemprop="description" content="A tantalizing video showcasing a delightful and delicious treat." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/VSVSWkpF1.mp4" />
-        <a href="https://brexit-web.github.io/VSVSWkpF1.mp4" class="button-style" aria-label="Watch video: Yummy">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/VSVSWkpF1.mp4" class="video-link" aria-label="Watch video: Yummy">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -258,7 +214,7 @@
         <meta itemprop="description" content="A captivating video celebrating the rugged spirit of a cowboy." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/fHokFTFG1.mp4" />
-        <a href="https://brexit-web.github.io/fHokFTFG1.mp4" class="button-style" aria-label="Watch video: The cowboy">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/fHokFTFG1.mp4" class="video-link" aria-label="Watch video: The cowboy">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -267,7 +223,7 @@
         <meta itemprop="description" content="A video showcasing an impressive and breathtaking visual capture." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/lbdOMYh21.mp4" />
-        <a href="https://brexit-web.github.io/lbdOMYh21.mp4" class="button-style" aria-label="Watch video: Awesome shot">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/lbdOMYh21.mp4" class="video-link" aria-label="Watch video: Awesome shot">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -276,7 +232,7 @@
         <meta itemprop="description" content="An exclusive video meant for private viewing, shared within a select circle." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/gjmuzoU81.mp4" />
-        <a href="https://brexit-web.github.io/gjmuzoU81.mp4" class="button-style" aria-label="Watch video: My Private video">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/gjmuzoU81.mp4" class="video-link" aria-label="Watch video: My Private video">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -285,7 +241,7 @@
         <meta itemprop="description" content="A video featuring the engaging presence of Joey White and Sami White." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/MnSk7RtQ1.mp4" />
-        <a href="https://brexit-web.github.io/MnSk7RtQ1.mp4" class="button-style" aria-label="Watch video: Joey White & Sami White">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/MnSk7RtQ1.mp4" class="video-link" aria-label="Watch video: Joey White & Sami White">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -294,7 +250,7 @@
         <meta itemprop="description" content="A humorous video of individuals deliberately causing disorder or excitement." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/DYAbksXy1.mp4" />
-        <a href="https://brexit-web.github.io/DYAbksXy1.mp4" class="button-style" aria-label="Watch video: They woke up and chose chaos">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/DYAbksXy1.mp4" class="video-link" aria-label="Watch video: They woke up and chose chaos">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -303,7 +259,7 @@
         <meta itemprop="description" content="A touching video showing the unwavering loyalty of a dog anticipating its owner's return." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/x90DVkqb1.mp4" />
-        <a href="https://brexit-web.github.io/x90DVkqb1.mp4" class="button-style" aria-label="Watch video: A Dog Waiting for Its Master">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/x90DVkqb1.mp4" class="video-link" aria-label="Watch video: A Dog Waiting for Its Master">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -312,7 +268,7 @@
         <meta itemprop="description" content="A philosophical or insightful video suggesting that nothing is coincidental." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/7m9P354R1.mp4" />
-        <a href="https://brexit-web.github.io/7m9P354R1.mp4" class="button-style" aria-label="Watch video: all in there for a reason">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/7m9P354R1.mp4" class="video-link" aria-label="Watch video: all in there for a reason">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -321,7 +277,7 @@
         <meta itemprop="description" content="A captivating video of a performer commanding attention with a microphone." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/BaxGy34n1.mp4" />
-        <a href="https://brexit-web.github.io/BaxGy34n1.mp4" class="button-style" aria-label="Watch video: Mic in hand, spotlight">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/BaxGy34n1.mp4" class="video-link" aria-label="Watch video: Mic in hand, spotlight">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -330,7 +286,7 @@
         <meta itemprop="description" content="A tribute video celebrating Yabdiel Cotto's cinematic presence and impact." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/nYTia0iV1.mp4" />
-        <a href="https://brexit-web.github.io/nYTia0iV1.mp4" class="button-style" aria-label="Watch video: Yabdiel Cotto is a movie King">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/nYTia0iV1.mp4" class="video-link" aria-label="Watch video: Yabdiel Cotto is a movie King">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -339,7 +295,7 @@
         <meta itemprop="description" content="A startling video designed to surprise and challenge perceptions." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/1m8Vll2K1.mp4" />
-        <a href="https://brexit-web.github.io/1m8Vll2K1.mp4" class="button-style" aria-label="Watch video: This will shock your self">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/1m8Vll2K1.mp4" class="video-link" aria-label="Watch video: This will shock your self">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -348,7 +304,7 @@
         <meta itemprop="description" content="A video demonstrating a state of complete readiness or preparation." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/frGzXq121.mp4" />
-        <a href="https://brexit-web.github.io/frGzXq121.mp4" class="button-style" aria-label="Watch video: Everything is ready">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/frGzXq121.mp4" class="video-link" aria-label="Watch video: Everything is ready">Watch Video Now</a>
       </figure>
 
       <figure itemscope itemtype="http://schema.org/VideoObject">
@@ -357,12 +313,12 @@
         <meta itemprop="description" content="An intriguing video featuring a masked figure poised for an exciting challenge." />
         <meta itemprop="uploadDate" content="2025-08-02" />
         <link itemprop="contentUrl" href="https://brexit-web.github.io/5Llx2fSq1.mp4" />
-        <a href="https://brexit-web.github.io/5Llx2fSq1.mp4" class="button-style" aria-label="Watch video: Masked man ready for action">Watch Video Now</a>
+        <a href="https://brexit-web.github.io/5Llx2fSq1.mp4" class="video-link" aria-label="Watch video: Masked man ready for action">Watch Video Now</a>
       </figure>
     </div>
   </main>
 
-  <a href="https://carlito471.github.io" class="button-style next-page-button">Explore More Videos</a>
+  <a href="https://carlito471.github.io" class="video-link next-page-button">Explore More Videos</a>
 
   <footer>
     <p>&copy; 2025 Videy.co. All rights reserved.</p>
